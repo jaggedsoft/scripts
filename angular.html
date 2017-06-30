@@ -1,0 +1,408 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta id="vp" name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google" value="notranslate">
+<title>Material Design</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc.5/angular-material.css'>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-aria.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-messages.min.js'></script>
+<!-- https://cdnjs.com/libraries/angular-material -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc.5/angular-material.js'></script>
+<style>
+md-tabs { height:1000px }
+md-sidenav { min-width:200px }
+md-sidenav md-list-item.md-2-line ch{ min-height:initial !important; }
+md-sidenav md-list-item.md-2-line .md-list-item-text {
+  padding-top: 16px;
+  padding-bottom: 12px;
+}
+/* .bigtext {font-size:20px;font-weight:bold} */
+md-checkbox[disabled].md-checked .md-icon {
+	background-color: rgba(0,150,136,0.87);
+}
+[md-ink-ripple] {
+  cursor: pointer;
+}
+/* @media screen and (max-width:900px){md-icon{display:none !important}} */
+</style>
+</head><body><!-- action:ic_schedule, action:ic_search -->
+<div ng-cloak="" ng-controller="AppCtrl" ng-app="MyApp">
+      <md-toolbar>
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Menu">
+<!--           <md-icon md-svg-icon="https://raw.githubusercontent.com/angular/material/master/src/components/toolbar/demoBasicUsage/img/icons/menu.svg"></md-icon> -->
+					 <md-icon md-svg-icon="action:ic_home_24px"></md-icon> <!-- ic_dashboard_24px social:ic_poll_24px ic_trending_up_24px -->
+        </md-button>
+        <h2>
+          <span>Company Name</span>
+        </h2>
+        <span flex=""></span>
+				<md-button>NextLocal</md-button>
+      </div>
+    </md-toolbar>
+			
+<div layout="row" flex>
+<!-- show city population on rankings table -->
+<!-- md-whiteframe-z2 md-is-locked-open="$mdMedia('gt-md')" -->
+		<md-sidenav flex="20" layout="column" class="md-sidenav-left" md-component-id="left" md-is-locked-open="true">
+			<md-list><!-- icons: https://design.google.com/icons/#ic_accessibility -->
+ 						<md-list-item class="md-2-line" role="link" md-ink-ripple ng-click="menu='dashboard'">
+							<md-icon md-svg-icon="action:ic_dashboard_24px"></md-icon>
+							<div class="md-list-item-text">
+								<span class="md-body-2">Dashboard</span>
+							</div>
+						</md-list-item>
+<!-- 						<md-list-item class="md-2-line" role="link" md-ink-ripple>
+							<md-icon md-svg-icon="action:ic_home_24px"></md-icon>
+							<div class="md-list-item-text">
+								<span class="md-body-2">Home</span>
+							</div>
+						</md-list-item> -->
+<!-- 						<md-divider></md-divider>
+						<md-subheader class="md-no-sticky">Management</md-subheader> -->
+				
+						<md-list-item class="md-2-line" role="link" md-ink-ripple ng-click="menu='placements'">
+							<md-icon md-svg-icon="action:ic_grade_24px"></md-icon> <!-- maps:ic_local_activity_24px -->
+							<div class="md-list-item-text">
+								<span class="md-body-2">Top Placements</span>
+							</div>
+						</md-list-item>
+				
+						<md-list-item class="md-2-line" role="link" md-ink-ripple ng-click="menu='reports'">
+							<md-icon md-svg-icon="action:ic_description_24px"></md-icon>
+							<div class="md-list-item-text">
+								<span class="md-body-2">Ranking Reports</span>
+							</div>
+						</md-list-item>
+				
+				
+						<!-- <md-list-item class="md-2-line" role="link" md-ink-ripple>
+							<md-icon md-svg-icon="social:ic_poll_24px"></md-icon>
+							<div class="md-list-item-text">
+								<span class="md-body-2">Placements</span>
+							</div>
+						</md-list-item>-->
+				
+						<md-list-item class="md-2-line" role="link" md-ink-ripple ng-click="menu='map'">
+							<md-icon md-svg-icon="maps:ic_place_24px"></md-icon>
+							<div class="md-list-item-text">
+								<span class="md-body-2">Map Locations</span>
+							</div>
+						</md-list-item>
+				
+<!-- 						<md-list-item class="md-2-line" role="link" md-ink-ripple>
+							<md-icon md-svg-icon="social:ic_pages_24px"></md-icon>
+							<div class="md-list-item-text">
+								<span class="md-body-2">Pages</span>
+							</div>
+						</md-list-item> -->
+				
+						<md-list-item class="md-2-line" role="link" md-ink-ripple ng-click="menu='keywords'">
+							<md-icon md-svg-icon="action:ic_pageview_24px"></md-icon>
+							<div class="md-list-item-text">
+								<span class="md-body-2">Keywords</span>
+							</div>
+						</md-list-item>
+				
+						<md-list-item class="md-2-line" role="link" md-ink-ripple ng-click="menu='timeline'">
+							<md-icon md-svg-icon="action:ic_timeline_24px"></md-icon>
+							<div class="md-list-item-text">
+								<span class="md-body-2">Timeline</span>
+							</div>
+						</md-list-item>
+				
+						<!--<md-list-item class="md-2-line" role="link" md-ink-ripple>
+							<md-icon md-svg-icon="social:ic_group_24px"></md-icon>
+							<div class="md-list-item-text">
+								<span class="md-body-2">Contacts</span>
+							</div>
+						</md-list-item>--><!-- action:ic_account_box -->
+				
+						<md-list-item class="md-2-line" role="link" md-ink-ripple ng-click="menu='settings'">
+							<md-icon md-svg-icon="action:ic_settings_24px"></md-icon> <!-- action:ic_settings_applications_24px -->
+							<div class="md-list-item-text">
+								<span class="md-body-2">Settings</span>
+							</div>
+						</md-list-item>
+				
+<md-divider></md-divider><br/>
+				
+<!-- 						<md-list-item class="md-2-line" role="link" md-ink-ripple>
+							<md-icon md-svg-icon="maps:ic_add_location_24px"></md-icon>
+							<div class="md-list-item-text">
+								<span class="md-body-2">Add Location</span>
+							</div>
+						</md-list-item> -->
+				
+<!-- 						<md-list-item class="md-2-line" role="link" md-ink-ripple>
+							<md-icon md-svg-icon="maps:ic_local_atm_24px"></md-icon>
+							<div class="md-list-item-text">
+								<span class="md-body-2">Billing History</span>
+							</div>
+						</md-list-item> -->
+				
+						<md-list-item class="md-2-line" role="link" md-ink-ripple ng-click="menu='tech'">
+							<md-icon md-svg-icon="communication:ic_contact_mail_24px"></md-icon> <!-- textsms -->
+							<div class="md-list-item-text">
+								<span class="md-body-2">Tech Support</span>
+							</div>
+						</md-list-item>
+				
+				
+						<!-- <md-list-item class="md-2-line" role="link" md-ink-ripple>
+							<md-icon md-svg-icon="action:ic_help_outline_24px"></md-icon>
+							<div class="md-list-item-text">
+								<span class="md-body-2">Help</span>
+							</div>
+						</md-list-item>-->
+				
+				
+			 </md-list>
+		</md-sidenav>
+
+	<!-- switch on -->
+  <md-content flex="80">
+	<ng-include src="'/design/beta/ng-test.html'" ng-if="menu=='tech'"></ng-include>
+    <ng-include src="'overview.html'" ng-if="menu=='placements'"></ng-include>
+<script type="text/ng-template" id="toast-template.html"><md-toast>
+  <span class="md-toast-text" flex>Custom toast!</span>
+  <md-button md-ink-ripple class="md-highlight" ng-click="openMoreInfo($event)">
+    More info
+  </md-button>
+  <md-button md-ink-ripple ng-click="closeToast()">
+    Close
+  </md-button>
+</md-toast></script>
+    <md-tabs md-border-bottom="" ng-if="menu=='dashboard'">
+      <md-tab label="1. Import Contacts">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Tab One</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+
+<md-card flex>
+<md-card-content>
+<p>Complete your profile to start running campaigns</p>
+<md-divider></md-divider>
+<p>
+    <md-button md-ink-ripple class="md-fab md-primary md-hue-2" aria-label="Import Contacts">
+		<md-icon md-svg-src="/img/ic_people_24px.svg"></md-icon>
+	</md-button> <md-button md-ink-ripple>Import Contacts</md-button>
+</p>
+<p>
+	<md-button md-ink-ripple class="md-fab md-primary md-hue-2" aria-label="Create Campaign">
+		<md-icon md-svg-src="/img/ic_create_24px.svg"></md-icon>
+	</md-button> <md-button md-ink-ripple>Create a Campaign</md-button>
+</p>
+<p>
+	<md-button md-ink-ripple class="md-fab md-primary md-hue-2" aria-label="Preview & Send">
+		<md-icon md-svg-src="/img/ic_send_24px.svg"></md-icon><!-- ic_contact_mail_24px -->
+	</md-button> <md-button md-ink-ripple>Send Campaign</md-button>
+</p>
+</md-card-content>
+</md-card><br/>
+<md-card flex>
+<md-card-content>
+<p>
+    <md-button md-ink-ripple class="md-fab md-primary md-hue-2" aria-label="Import Contacts">
+		<md-icon md-svg-src="/img/ic_people_24px.svg"></md-icon>
+<!-- 		<md-tooltip md-direction="bottom">
+          Import Contacts
+        </md-tooltip> -->
+	</md-button>
+	<md-button md-ink-ripple class="md-fab md-primary md-hue-2" aria-label="Create Campaign">
+		<md-icon md-svg-src="/img/ic_create_24px.svg"></md-icon>
+		<md-tooltip md-direction="bottom">
+          Create Campaign
+        </md-tooltip>
+	</md-button>
+	<md-button md-ink-ripple class="md-fab md-primary md-hue-2" aria-label="Preview & Send">
+		<md-icon md-svg-src="/img/ic_send_24px.svg"></md-icon><!-- ic_contact_mail_24px -->
+		<md-tooltip md-direction="bottom">
+          Preview &amp; Send
+        </md-tooltip>
+	</md-button>
+</p>
+  <p><md-button md-ink-ripple ng-disabled="true">Import Contacts</md-button> <md-checkbox ng-disabled="true" ng-checked="true"></md-checkbox></p>
+  <p><md-button md-ink-ripple class="md-raised" ng-click="showCustomToast()">
+        Create a Campaign
+     </md-button> <md-checkbox md-ink-ripple ng-disabled="true"></md-checkbox></p>
+  <p><md-button md-ink-ripple class="md-raised" ng-click="showCustomToast()">
+        Send Campaign
+     </md-button> <md-checkbox md-ink-ripple ng-disabled="true"></md-checkbox></p>
+	<p><md-button md-ink-ripple class="md-raised">
+        DO IT NOW
+     </md-button></p>
+</md-card-content>
+	<md-card-actions layout="row" layout-align="end center">
+		<md-button md-ink-ripple>Action 1</md-button>
+	</md-card-actions>
+</md-card>
+			
+
+  <md-card>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">Battle Preferences</span>
+      </md-card-title-text>
+    </md-card-title>
+
+    <md-card-content>
+      <div layout="row" layout-align="space-between center">
+        <span>What is your favorite weapon?</span>
+        <md-select ng-model="weapon" placeholder="Weapon" class="md-no-underline">
+			<md-optgroup label="Weapons">
+				<md-option value="axe">Axe</md-option>
+				<md-option value="sword">Sword</md-option>
+				<md-option value="wand">Wand</md-option>
+				<md-option value="pen">Pen?</md-option>
+			</md-optgroup>
+        </md-select>
+      </div>
+
+      <div layout="row" layout-align="space-between center">
+        <span>What armor do you wear?</span>
+        <md-select ng-model="armor" placeholder="Armor" class="md-no-underline" required="">
+          <md-option value="cloth">Cloth</md-option>
+          <md-option value="leather">Leather</md-option>
+          <md-option value="chain">Chainmail</md-option>
+          <md-option value="plate">Plate</md-option>
+        </md-select>
+      </div>
+
+      <div layout="row" layout-align="space-between center">
+        <span>How do you refresh your magic?</span>
+        <md-select ng-model="drink" placeholder="Drink" class="md-no-underline">
+          <md-option value="water">Water</md-option>
+          <md-option value="juice">Juice</md-option>
+          <md-option value="milk">Milk</md-option>
+          <md-option value="wine">Wine</md-option>
+          <md-option value="mead">Mead</md-option>
+        </md-select>
+      </div>
+    </md-card-content>
+  </md-card>
+<!-- <p><md-button>Next</md-button></p> -->
+<!--<div layout="row" layout-wrap="" layout-align="center start" layout-xs="column">
+<md-card flex>
+	<md-card-title>
+		<md-card-title-text><span class="md-headline">Contacts</span></md-card-title-text>
+	</md-card-title>
+	<md-card-actions layout="row" layout-align="end center">
+		<md-button>Action 1</md-button>
+		<md-button>Action 2</md-button>
+	</md-card-actions>
+</md-card>
+<md-card flex>
+	<md-card-title>
+		<md-card-title-text><span class="md-headline">Campaigns</span></md-card-title-text>
+	</md-card-title>
+	<md-card-actions layout="row" layout-align="end center">
+		<md-button>Action 1</md-button>
+		<md-button>Action 2</md-button>
+	</md-card-actions>
+</md-card>
+</div>-->
+          
+        </md-content>
+      </md-tab>
+      <md-tab label="2. Create a Campaign">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Tab Two</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate.</p>
+          <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="3. Send Campaign">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Tab Three</h1>
+          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+		
+		<ng-include src="'overview.html'" ng-if="menu=='rankings'"></ng-include>
+		
+<!-- 		<ng-include src="'domino/design/concept.html'" ng-if="menu=='keywords'"></ng-include> -->
+		
+  </md-content>
+</div>
+			
+</div>
+
+<script>
+var isDlgOpen;
+var app = angular.module('MyApp', ['ngMaterial','ngMessages']);
+app.config(function($mdThemingProvider,$mdIconProvider) {
+    $mdThemingProvider.theme('default')
+					.primaryPalette('blue')
+					.accentPalette('blue');
+	  $mdIconProvider.iconSet('communication','https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-communication.svg', 24);
+	  $mdIconProvider.iconSet('maps','https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-maps.svg', 24);
+	  $mdIconProvider.iconSet('action','https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-action.svg', 24);
+	  $mdIconProvider.iconSet('social', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-social.svg', 24)
+    $mdIconProvider.defaultIconSet('core-icons.svg', 24);
+});
+app.controller('AppCtrl',function($scope,$mdSidenav,$mdToast) {
+	
+	$scope.menu = "dashboard";
+	$scope.toggleSidenav = function(id) {
+		$mdSidenav(id).toggle();
+	}
+	
+	$scope.showCustomToast = function() {
+		$mdToast.show({
+		  hideDelay   : 8000,
+		  position    : 'top right',
+		  controller  : 'ToastCtrl',
+		  templateUrl : 'toast-template.html'
+		});
+	};
+	setTimeout(function(){$scope.showCustomToast()},2000);
+	
+	
+});
+	
+app.controller('ToastCtrl', function($scope, $mdToast, $mdDialog) {
+
+      $scope.closeToast = function() {
+        if (isDlgOpen) return;
+
+        $mdToast
+          .hide()
+          .then(function() {
+            isDlgOpen = false;
+          });
+      };
+
+      $scope.openMoreInfo = function(e) {
+        if ( isDlgOpen ) return;
+        isDlgOpen = true;
+
+        $mdDialog
+          .show($mdDialog
+            .alert()
+            .title('More info goes here.')
+            .textContent('Something witty.')
+            .ariaLabel('More info')
+            .ok('Got it')
+            .targetEvent(e)
+          )
+          .then(function() {
+            isDlgOpen = false;
+          })
+      };
+});
+
+	
+app.config(['$compileProvider', function($compileProvider) {
+	$compileProvider.debugInfoEnabled(false);
+}]);
+	
+if ( screen.width < 800 ) {
+    var mvp = document.getElementById('vp');
+    mvp.setAttribute('content','width=800');
+}
+</script>
+</body></html>
