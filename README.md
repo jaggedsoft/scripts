@@ -1,27 +1,6 @@
 # Node & PHP Scripts
 Useful scripts https://nextlocal.net
 
-> **Node MySQL examples:**
-
-    var mysql      = require('mysql');
-    var connection = mysql.createConnection({
-      host     : 'example.org',
-      user     : 'bob',
-      password : 'secret',
-    });
-    connection.connect(function(err) {
-      // connected! (unless `err` is set)
-    });
-    var post  = {id: 1, title: 'Hello MySQL'};
-    var query = connection.query('INSERT INTO posts SET ?', post, function(err, result) {
-      // Neat!
-    });
-    console.log(query.sql); // INSERT INTO posts SET `id` = 1, `title` = 'Hello MySQL'
-    pool.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-      if (err) throw err;
-      console.log('The solution is: ', rows[0].solution);
-    });
-
 > **PHP MySQL examples:**
 
     $db = new mysqli('localhost','user','password','database');
@@ -31,7 +10,7 @@ Useful scripts https://nextlocal.net
     $resource->free();
     $db->close();
 
-> **If you're grabbing more than one row, I do it like this:**
+> **If you're grabbing more than one row:**
 
     $db = new mysqli('localhost','user','password','database');
     $resource = $db->query('SELECT field FROM table WHERE 1');
@@ -70,3 +49,26 @@ Useful scripts https://nextlocal.net
         print_r($row);//echo "{$row['field']}";
     }
     $db->close();
+
+
+
+> **Node MySQL examples:**
+
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+      host     : 'example.org',
+      user     : 'bob',
+      password : 'secret',
+    });
+    connection.connect(function(err) {
+      // connected! (unless `err` is set)
+    });
+    var post  = {id: 1, title: 'Hello MySQL'};
+    var query = connection.query('INSERT INTO posts SET ?', post, function(err, result) {
+      // Neat!
+    });
+    console.log(query.sql); // INSERT INTO posts SET `id` = 1, `title` = 'Hello MySQL'
+    pool.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+      if (err) throw err;
+      console.log('The solution is: ', rows[0].solution);
+    });
