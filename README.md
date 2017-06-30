@@ -2,6 +2,7 @@
 Useful scripts https://nextlocal.net
 
 > **Node MySQL examples:**
+
     var mysql      = require('mysql');
     var connection = mysql.createConnection({
       host     : 'example.org',
