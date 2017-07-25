@@ -72,3 +72,18 @@ Useful scripts https://nextlocal.net
       if (err) throw err;
       console.log('The solution is: ', rows[0].solution);
     });
+
+
+
+> **XMLHttpRequest**
+
+    function get_json(url, callback) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+            if ( http.readyState == 4 && http.status == 200 ) {
+                callback(http.responseText);
+            }
+        }
+        http.open("GET", url, true);
+        http.send();
+    }
