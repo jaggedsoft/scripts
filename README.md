@@ -76,7 +76,7 @@ Useful scripts https://nextlocal.net
     
 > **PHP Sort**
 
-    uasort($array, function($a, $b) { return $a < $b; });
+    uasort($markets, function($a, $b) { return $a['score'] < $b['score']; });
 
 
 > **XMLHttpRequest**
