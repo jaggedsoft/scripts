@@ -72,7 +72,11 @@ Useful scripts https://nextlocal.net
       if (err) throw err;
       console.log('The solution is: ', rows[0].solution);
     });
+    
+    
+> **PHP Sort**
 
+    uasort($array, function($a, $b) { return $a < $b; });
 
 
 > **XMLHttpRequest**
