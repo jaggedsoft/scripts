@@ -91,3 +91,7 @@ Useful scripts https://nextlocal.net
         http.open("GET", url, true);
         http.send();
     }
+    
+> **Object.assign**
+
+    Object.assign(document.querySelector(".chart-title").style,{lineHeight:"35px",fontSize:"28px",fontWeight:"bold",backgroundColor:"#444",padding:"0 4px 0 4px"});
