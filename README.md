@@ -92,6 +92,18 @@ Useful scripts https://nextlocal.net
         http.send();
     }
     
+    function post_json(url, json, callback) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+            if ( http.readyState == 4 && http.status == 200 ) {
+                callback(http.responseText);
+            }
+        }
+        http.open("POST", url, true);
+        http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+        http.send(JSON.stringify(json));
+    }
+    
 > **Object.assign**
 
     Object.assign(document.querySelector(".chart-title").style,{lineHeight:"35px",fontSize:"28px",fontWeight:"bold",backgroundColor:"#444",padding:"0 4px 0 4px"});
