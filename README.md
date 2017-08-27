@@ -73,7 +73,14 @@ Useful scripts https://nextlocal.net
       console.log('The solution is: ', rows[0].solution);
     });
     
+> **JS Percent**
+
+    function percent($min,$max,$width=100) {
+        return ($min*0.01)/($max*0.01)*parseInt($width);
+    }
+    
 > **PHP Percent**
+
     function percent($min,$max,$width=100) { // 50,100,100 = 50.  1,2,100 = 50.  1,2,10 = 5.
             return ($min*0.01)/($max*0.01)*intval($width);
     }
