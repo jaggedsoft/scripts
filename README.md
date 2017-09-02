@@ -75,8 +75,8 @@ Useful scripts https://nextlocal.net
     
 > **JS Percent**
 
-    function percent($min,$max,$width=100) {
-        return ($min*0.01)/($max*0.01)*parseInt($width);
+    function percent(min,max,width=100) {
+        return (min*0.01)/(max*0.01)*parseInt(width);
     }
     
 > **PHP Percent**
