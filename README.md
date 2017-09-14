@@ -72,6 +72,9 @@ Useful scripts https://nextlocal.net
       if (err) throw err;
       console.log('The solution is: ', rows[0].solution);
     });
+
+> **JS Stylesheet**
+    window.document.styleSheets[0].insertRule(line,0);
     
 > **JS Percent**
 
