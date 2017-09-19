@@ -82,6 +82,13 @@ Useful scripts https://nextlocal.net
         return (min*0.01)/(max*0.01)*parseInt(width);
     }
     
+> **JS Average**
+
+    function average(array) {
+        let sum = array.reduce(function(a, b) { return a + b; });
+        return sum / array.length;
+    }
+    
 > **PHP Percent**
 
     function percent($min,$max,$width=100) { // 50,100,100 = 50.  1,2,100 = 50.  1,2,10 = 5.
