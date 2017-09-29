@@ -74,6 +74,7 @@ Useful scripts https://nextlocal.net
     });
 
 > **JS Stylesheet**
+
     window.document.styleSheets[0].insertRule(line,0);
     
 > **JS Percent**
@@ -99,6 +100,18 @@ Useful scripts https://nextlocal.net
 
     uasort($markets, function($a, $b) { return $a['score'] < $b['score']; });
 
+> **Request.js POST**
+
+	const options = {
+		uri: 'https://discordapp.com/api/webhooks/<>/<>/,
+		method: 'POST',
+		json: {<>}
+	};
+	request(options, function (error, response, body) {
+		if ( !error && response.statusCode == 200 ) {
+		    //console.log(body)
+		}
+	});
 
 > **XMLHttpRequest**
 
