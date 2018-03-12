@@ -11,3 +11,16 @@ function get_data() {
 	curl_close($ch);
 	return $result;
 }
+
+// POST request
+echo curl_post("https://api.idex.market/returnTicker");
+function curl_post($url) {
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_POST, true);
+	//curl_setopt($ch, CURLOPT_POSTFIELDS, "postvar1=value1&postvar2=value2&postvar3=value3");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$response = curl_exec($ch);
+	curl_close($ch);
+	return $response;
+}
