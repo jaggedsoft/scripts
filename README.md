@@ -108,9 +108,9 @@ Useful scripts https://nextlocal.net
 > **Request.js POST**
 ```js
 	const options = {
-		uri: 'https://discordapp.com/api/webhooks/<>/<>/,
+		uri: 'https://discordapp.com/api/webhooks/../../',
 		method: 'POST',
-		json: {<>}
+		json: {...}
 	};
 	request(options, function (error, response, body) {
 		if ( !error && response.statusCode == 200 ) {
