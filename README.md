@@ -105,6 +105,13 @@ Useful scripts https://nextlocal.net
     uasort($markets, function($a, $b) { return $a['score'] < $b['score']; });
 ```
 
+> **PHP Output Buffering**
+```php
+if(!ob_start("ob_gzhandler")) ob_start();
+//...
+ob_end_flush();
+```
+
 > **Request.js POST**
 ```js
 	const options = {
