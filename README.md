@@ -1,6 +1,21 @@
 # Node & PHP Scripts
 Useful scripts https://nextlocal.net
 
+> **ES6 Generators**
+```js
+function *fibonacci(n, current = 0, next = 1) {
+  if (n === 0) {
+    return current;
+  }
+  yield current;
+  yield *fibonacci(n-1, next, current + next);
+}
+
+let fibs = [...fibonacci(20)]
+console.info(fibs);
+//[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]
+```
+
 > **PHP MySQL examples:**
 ```php
     $db = new mysqli('localhost','user','password','database');
