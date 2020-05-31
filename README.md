@@ -1,5 +1,4 @@
 # Node & PHP Scripts
-Useful scripts https://nextlocal.net
 
 > **Object.entries**
 ```js
