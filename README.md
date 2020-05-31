@@ -1,6 +1,13 @@
 # Node & PHP Scripts
 Useful scripts https://nextlocal.net
 
+> **Object.entries**
+```js
+for ( let [ key, value ] of Object.entries(obj) ) {
+  console.log( `${ key }: ${ value }` );
+}
+```
+
 > **ES6 Generators**
 ```js
 function *fibonacci(n, current = 0, next = 1) {
