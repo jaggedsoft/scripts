@@ -7,6 +7,16 @@ for ( let [ key, value ] of Object.entries(obj) ) {
 }
 ```
 
+> **Format decimal precision & USD values**
+```js
+function format_usd( number, maximumFractionDigits = 2, minimumFractionDigits = 0 ) {
+    return new Intl.NumberFormat( 'en-US', { style: 'currency', currency: 'USD', minimumFractionDigits, maximumFractionDigits } ).format( number );
+}
+function precision( number, maximumFractionDigits = 8, minimumFractionDigits = 0 ) {
+    return new Intl.NumberFormat( 'en-US', { style: 'decimal', minimumFractionDigits, maximumFractionDigits } ).format( number );
+}
+```
+
 > **ES6 Generators**
 ```js
 function *fibonacci(n, current = 0, next = 1) {
