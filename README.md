@@ -1,18 +1,3 @@
-# Node & PHP
-
-> **Automatic Exception Rejection**
-```js
-process.on( 'unhandledRejection', up => { throw up } )
-```
-
-> **Catastrophic Failure on Unhandled Exception**
-```js
-process.on( 'unhandledRejection', async ( reason, p ) => {
-    console.log( 'Unhandled Rejection at:', p, 'reason:', reason );
-    process.exit(1);
-} );
-```
-
 > **Object.entries**
 ```js
 for ( let [ key, value ] of Object.entries(obj) ) {
@@ -28,6 +13,45 @@ function format_usd( number, maximumFractionDigits = 2, minimumFractionDigits = 
 function precision( number, maximumFractionDigits = 8, minimumFractionDigits = 0 ) {
     return new Intl.NumberFormat( 'en-US', { style: 'decimal', minimumFractionDigits, maximumFractionDigits } ).format( number );
 }
+```
+
+> **Destructuring Arrays/Objects Within Function Declaration**
+```js
+function greet( { name = 'Steve', greeting } ) {
+    console.info( `${greeting}, ${name}!` )
+}
+greet( { name: 'Larry', greeting: 'Ahoy' } )
+```
+
+> **Automatic Exception Rejection**
+```js
+process.on( 'unhandledRejection', up => { throw up } )
+```
+
+> **Catastrophic Failure on Unhandled Exception**
+```js
+process.on( 'unhandledRejection', async ( reason, p ) => {
+    console.log( 'Unhandled Rejection at:', p, 'reason:', reason );
+    process.exit(1);
+} );
+```
+
+> **Computed property names**
+```js
+let event = 'click'
+let handlers = {
+  [`on${event}`]: true
+}
+// Same as: handlers = { 'onclick': true }
+```
+
+> **CSS Stylesheet Injection**
+```js
+window.document.styleSheets[0].insertRule("#tv-toasts{display:none !important}",0);
+```
+> **Tampermonkey Stylesheet Override**
+```js
+const customInjection = (styles = '') => eval(`var css='${styles}';var style = document.createElement('style');style.type = 'text/css'; if (style.styleSheet) { style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } var headElement = document.head;headElement.appendChild(style);`);
 ```
 
 > **ES6 Generators**
@@ -196,9 +220,20 @@ ob_end_flush();
     }
 ```
 
+> **Debounce**
+```js
+const debounce = ( funcToExecute, executeAfter ) => {
+    let timer;
+    return () => {
+        clearTimeout( timer );
+        timer = setTimeout( () => { funcToExecute.apply( this, arguments ) }, executeAfter );
+    }
+}
+```
+
 > **Object.assign**
 ```js
     Object.assign(document.querySelector(".chart-title").style,{lineHeight:"35px",fontSize:"28px",fontWeight:"bold",backgroundColor:"#444",padding:"0 4px 0 4px"});
 ```
 
-Micro Websockets https://github.com/uNetworking/uWebSockets
+Fastest Websocket Server https://github.com/uNetworking/uWebSockets
