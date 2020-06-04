@@ -36,7 +36,7 @@ process.on( 'unhandledRejection', async ( reason, p ) => {
 } );
 ```
 
-> **Computed property names**
+> **Computed Property Names**
 ```js
 let event = 'click'
 let handlers = {
@@ -54,7 +54,7 @@ window.document.styleSheets[0].insertRule("#tv-toasts{display:none !important}",
 const customInjection = (styles = '') => eval(`var css='${styles}';var style = document.createElement('style');style.type = 'text/css'; if (style.styleSheet) { style.styleSheet.cssText = css; } else { style.appendChild(document.createTextNode(css)); } var headElement = document.head;headElement.appendChild(style);`);
 ```
 
-> **ES6 Generators**
+> **ES6 Generators** allows us to pause the execution of the function and continue it later
 ```js
 function *fibonacci(n, current = 0, next = 1) {
   if (n === 0) {
