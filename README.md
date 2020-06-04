@@ -5,6 +5,14 @@
 process.on( 'unhandledRejection', up => { throw up } )
 ```
 
+> **Catastrophic Failure on Unhandled Exception**
+```js
+process.on( 'unhandledRejection', async ( reason, p ) => {
+    console.log( 'Unhandled Rejection at:', p, 'reason:', reason );
+    process.exit(1);
+} );
+```
+
 > **Object.entries**
 ```js
 for ( let [ key, value ] of Object.entries(obj) ) {
