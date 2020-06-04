@@ -1,4 +1,9 @@
-# Node & PHP Scripts
+# Node & PHP
+
+> **Automatic Exception Rejection**
+```js
+process.on( 'unhandledRejection', up => { throw up } )
+```
 
 > **Object.entries**
 ```js
