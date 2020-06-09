@@ -231,6 +231,11 @@ const debounce = ( funcToExecute, executeAfter ) => {
 }
 ```
 
+> **sleep**
+```js
+const sleep = ms => new Promise( res => setTimeout( res, ms ) );
+```
+
 > **Object.assign**
 ```js
     Object.assign(document.querySelector(".chart-title").style,{lineHeight:"35px",fontSize:"28px",fontWeight:"bold",backgroundColor:"#444",padding:"0 4px 0 4px"});
