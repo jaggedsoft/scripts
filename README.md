@@ -236,6 +236,13 @@ const debounce = ( funcToExecute, executeAfter ) => {
 const sleep = ms => new Promise( res => setTimeout( res, ms ) );
 ```
 
+> **get_random**
+```js
+function get_random( min, max ) {
+    return Math.random() * ( max - min ) + min;
+}
+````
+
 > **Object.assign**
 ```js
     Object.assign(document.querySelector(".chart-title").style,{lineHeight:"35px",fontSize:"28px",fontWeight:"bold",backgroundColor:"#444",padding:"0 4px 0 4px"});
