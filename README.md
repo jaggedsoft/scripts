@@ -119,6 +119,14 @@ console.info(fibs);
     $db->close();
 ```
 
+> ****
+```php
+// $timeframe = get('tf', '4h');
+function get($key, $default = false) {
+    return array_key_exists($key, $_GET) ? $_GET[$key] : $default;
+}
+```
+
 
 > **Node MySQL examples:**
 ```js
