@@ -239,6 +239,16 @@ const debounce = ( funcToExecute, executeAfter ) => {
 }
 ```
 
+> **Recursive generator**
+```js
+function *fibonacci(n, current = 0, next = 1) {
+    if ( n === 0 ) return current;
+    yield current;
+    yield *fibonacci( n - 1, next, current + next );
+}
+console.info([...fibonacci(20)]);
+```
+
 > **sleep**
 ```js
 const sleep = ms => new Promise( res => setTimeout( res, ms ) );
