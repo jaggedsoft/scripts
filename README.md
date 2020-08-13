@@ -36,6 +36,16 @@ process.on( 'unhandledRejection', async ( reason, p ) => {
 } );
 ```
 
+> **Diminishing Returns**
+```js
+function diminishing_returns( val, scale ) {
+    if ( val < 0 ) return -diminishing_returns( -val, scale );
+    let mult = val / scale;
+    let trinum = ( Math.sqrt( 8.0 * mult + 1.0 ) - 1.0 ) / 2.0;
+    return trinum * scale;
+}
+```
+
 > **Computed Property Names**
 ```js
 let event = 'click'
