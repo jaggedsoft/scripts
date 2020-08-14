@@ -7,6 +7,9 @@ for ( let [ key, value ] of Object.entries(obj) ) {
 
 > **Format decimal precision & USD values**
 ```js
+function short_number( number ) {
+    return number.toLocaleString( "en-US", { notation: "compact", compactDisplay: "short" } );
+}
 function format_usd( number, maximumFractionDigits = 2, minimumFractionDigits = 0 ) {
     return new Intl.NumberFormat( 'en-US', { style: 'currency', currency: 'USD', minimumFractionDigits, maximumFractionDigits } ).format( number );
 }
