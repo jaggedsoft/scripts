@@ -16,6 +16,8 @@ function format_usd( number, maximumFractionDigits = 2, minimumFractionDigits = 
 function precision( number, maximumFractionDigits = 8, minimumFractionDigits = 0 ) {
     return new Intl.NumberFormat( 'en-US', { style: 'decimal', minimumFractionDigits, maximumFractionDigits } ).format( number );
 }
+// toLocaleString("en-US", { notation: "compact", compactDisplay: "short" }); ... 123M
+// toLocaleString("en-US", { style: "currency", currency: "USD" }); ... $12,345.67
 ```
 
 > **Destructuring Arrays/Objects Within Function Declaration**
