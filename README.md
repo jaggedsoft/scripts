@@ -196,6 +196,32 @@ function get($key, $default = false) {
     uasort($markets, function($a, $b) { return $a['score'] < $b['score']; });
 ```
 
+> **PHP Human Duration**
+```php
+function time_ago( $timestamp = 0, $now = false ) { // Accepts timestamp or date string
+    if ( !is_numeric( $timestamp ) ) $timestamp = strtotime($timestamp);
+    $intervals = array(
+        60 * 60 * 24 * 365 => 'year',
+        60 * 60 * 24 * 30  => 'month',
+        60 * 60 * 24 * 7   => 'week',
+        60 * 60 * 24       => 'day',
+        60 * 60            => 'hour',
+        60                 => 'minute',
+        1                  => 'second',
+    );
+    if ( !$now ) $now = time();
+    if ( $timestamp > $now ) return 'in the future';
+    $delta = abs( $now - $timestamp );
+    foreach ( $intervals as $interval => $label ) {
+        if ( $delta < $interval ) continue;
+        $d = round( $delta / $interval );
+        if ( $d <= 1 )  $time_ago = sprintf( 'one %s ago', $label );
+        else $time_ago = sprintf( '%s %ss ago', $d, $label );
+        return $time_ago;
+    }
+}
+```
+
 > **PHP Output Buffering**
 ```php
 if(!ob_start("ob_gzhandler")) ob_start();
