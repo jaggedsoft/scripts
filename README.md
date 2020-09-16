@@ -48,6 +48,20 @@ function k($num, $precision = 0) {
     if ( $num > 1000 ) return number_format($num / 1000, $precision).'k';
     return number_format($num, $precision);
 }
+function getPrecision($num) {
+    if ( $num <= 0.00000001 ) return 8;
+    if ( $num <= 0.0000001 ) return 7;
+    if ( $num <= 0.000001 ) return 6;
+    if ( $num <= 0.00001 ) return 5;
+    if ( $num <= 0.0001 ) return 4;
+    if ( $num <= 0.01 ) return 3;
+    return 2;
+}
+function autoround($num, $add = 0) {
+    $precision = getPrecision($num) + $add;
+    if ( $precision > 8 ) $precision = 8;
+    return round($num, $precision);
+}
 ```
 
 > **Destructuring Arrays/Objects Within Function Declaration**
@@ -261,16 +275,16 @@ ob_end_flush();
 
 > **Request.js POST**
 ```js
-	const options = {
-		uri: 'https://discordapp.com/api/webhooks/../../',
-		method: 'POST',
-		json: {...}
-	};
-	request(options, function (error, response, body) {
-		if ( !error && response.statusCode == 200 ) {
-		    //console.log(body)
-		}
-	});
+const options = {
+    uri: 'https://discordapp.com/api/webhooks/../../',
+    method: 'POST',
+    json: {...}
+};
+request(options, function (error, response, body) {
+    if ( !error && response.statusCode == 200 ) {
+        //console.log(body)
+    }
+});
 ```
 
 > **XMLHttpRequest**
