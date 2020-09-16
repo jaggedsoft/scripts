@@ -19,6 +19,36 @@ function precision( number, maximumFractionDigits = 8, minimumFractionDigits = 0
 // toLocaleString("en-US", { notation: "compact", compactDisplay: "short" }); ... 123M
 // toLocaleString("en-US", { style: "currency", currency: "USD" }); ... $12,345.67
 ```
+> **PHP formatting numbers**
+```php
+function shortNumber($num, $precision = 2) {
+    $abs = abs($num);
+    if ( $abs < 1000 ) round($num, $precision);
+    $groups = ['k','m','B','T','Q'];
+    foreach ( $groups as $i => $group ) {
+        $div = 1000 ** ($i + 1);
+        if ( $abs < $div * 1000 ) return round($num / $div, $precision) . $group;
+    }
+    return number_format($num);
+}
+function sign($value) {
+    $up = $value > 0 ? true : false;
+    return "<span class='sign " . ($up ? 'green' : 'red') . "'>".($up ? '+' : '') . round($value, 2).'%';
+}
+function btc($value, $precision = 2) {
+    return number_format($value, $precision);
+}
+function usd($value, $precision = 0) {
+    return '$'.number_format($value, $precision);
+}
+function format($value, $precision = 0) {
+    return number_format($value, $precision);
+}
+function k($num, $precision = 0) {
+    if ( $num > 1000 ) return number_format($num / 1000, $precision).'k';
+    return number_format($num, $precision);
+}
+```
 
 > **Destructuring Arrays/Objects Within Function Declaration**
 ```js
