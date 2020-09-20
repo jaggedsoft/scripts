@@ -23,7 +23,7 @@ function precision( number, maximumFractionDigits = 8, minimumFractionDigits = 0
 ```php
 function shortNumber($num, $precision = 2) {
     $abs = abs($num);
-    if ( $abs < 1000 ) round($num, $precision);
+    if ( $abs < 1000 ) return round($num, $precision);
     $groups = ['k','m','B','T','Q'];
     foreach ( $groups as $i => $group ) {
         $div = 1000 ** ($i + 1);
