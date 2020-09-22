@@ -7,16 +7,46 @@ for ( let [ key, value ] of Object.entries(obj) ) {
 
 > **Format decimal precision & USD values**
 ```js
-function short_number( number ) {
+// Automatically determine precision for USD, BTC, ETH
+function autoFormat(value, isUSD = false, compact = false) {
+    let func = isUSD ? usd : precision;
+    if ( value <= 0.0000001 ) return func( value, 9, 9 );
+    else if ( value <= 0.000001 ) return func( value, 8, 8 );
+    else if ( value <= 0.00001 ) return func( value, 7, 7 );
+    else if ( value <= 0.0001 ) return func( value, 6, 6 );
+    else if ( value <= 0.001 ) return func( value, 5, 5 );
+    else if ( value <= 0.01 ) return func( value, 4, 4 );
+    else if ( value <= 0.1 ) return func( value, 3, 3 );
+    else if ( value >= 1000 ) return compact ? ( isUSD ? '$' : '' ) + shortNumber(value) : func( value, 0, 0 );
+    return func( value, 2, 2 );
+}
+
+// Compact notation: 123M
+function shortNumber( number ) {
     return number.toLocaleString( "en-US", { notation: "compact", compactDisplay: "short" } );
 }
-function format_usd( number, maximumFractionDigits = 2, minimumFractionDigits = 0 ) {
-    return new Intl.NumberFormat( 'en-US', { style: 'currency', currency: 'USD', minimumFractionDigits, maximumFractionDigits } ).format( number );
+
+// Format USD precision: $1,234.56
+function usd( number, maxdigits = 2, mindigits = 0 ) {
+    return new Intl.NumberFormat( 'en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: mindigits, maximumFractionDigits: maxdigits } ).format( number );
 }
-function precision( number, maximumFractionDigits = 8, minimumFractionDigits = 0 ) {
-    return new Intl.NumberFormat( 'en-US', { style: 'decimal', minimumFractionDigits, maximumFractionDigits } ).format( number );
+
+// Format decimal precision: 0.001
+function precision( number ) {
+    return new Intl.NumberFormat( 'en-US', { style: 'decimal', minimumFractionDigits: 0, maximumFractionDigits: 8 } ).format( number );
 }
-// toLocaleString("en-US", { notation: "compact", compactDisplay: "short" }); ... 123M
+
+// Get number of decimal places 
+function getPrecision( num ) {
+    if ( num <= 0.00000001 ) return 10;
+    if ( num <= 0.0000001 ) return 9;
+    if ( num <= 0.000001 ) return 8;
+    if ( num <= 0.00001 ) return 7;
+    if ( num <= 0.0001 ) return 6;
+    if ( num <= 0.001 ) return 6;
+    if ( num <= 0.01 ) return 6;
+    return 2;
+}
 // toLocaleString("en-US", { style: "currency", currency: "USD" }); ... $12,345.67
 ```
 > **PHP formatting numbers**
