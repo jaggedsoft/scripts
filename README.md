@@ -49,6 +49,17 @@ function getPrecision( num ) {
 }
 // toLocaleString("en-US", { style: "currency", currency: "USD" }); ... $12,345.67
 ```
+> **Human Readable List: Intl.ListFormat**
+```js
+const books = [
+    'Harry Potter',
+    'Bhagavad Gita',
+    'The Alchemist',
+    'Birthday Girl'
+]
+console.info( new Intl.ListFormat('en', { style: 'long', type: 'conjunction' }).format(books) );
+// Harry Potter, Bhagavad Gita, The Alchemist, and Birthday Girl
+```
 > **PHP formatting numbers**
 ```php
 function shortNumber($num, $precision = 2) {
