@@ -389,7 +389,16 @@ function get_random( min, max ) {
 
 > **Object.assign**
 ```js
-    Object.assign(document.querySelector(".chart-title").style,{lineHeight:"35px",fontSize:"28px",fontWeight:"bold",backgroundColor:"#444",padding:"0 4px 0 4px"});
+Object.assign(document.querySelector(".chart-title").style,{lineHeight:"35px",fontSize:"28px",fontWeight:"bold",backgroundColor:"#444",padding:"0 4px 0 4px"});
+```
+
+> **Telegram Webhook**
+```js
+async function tg_webhook( text = '', id = -459986888, parseMode = 'HTML', disablePreview = 'true' ) { // MarkdownV2
+    const token = ''; // Send message to BotFather
+    let response = await axios.get( `https://api.telegram.org/bot${ token }/sendMessage?chat_id=${ id }&parse_mode=${ parseMode }&disable_web_page_preview=${ disablePreview }&text=${ encodeURIComponent( text ) }` ); //.replace( /\./g,'\\.' ).replace( /-/g,'\\-' )
+    return response.data;
+}
 ```
 
 Fastest Websocket Server https://github.com/uNetworking/uWebSockets
