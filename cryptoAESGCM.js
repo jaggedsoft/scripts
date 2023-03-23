@@ -5,14 +5,8 @@
     const importKey = async exportedKey => await subtle.importKey( "raw", exportedKey, { name: "AES-GCM", length: 256 }, true, [ "encrypt", "decrypt" ] );
     const exportKey = async key => new Uint8Array( await subtle.exportKey( "raw", key ) );
 
-    function splitIVAndCiphertext( encryptedData ) {
-        const iv = encryptedData.slice( 0, 12 );
-        const ciphertext = encryptedData.slice( 12 );
-        return { iv, ciphertext };
-    }
-
     async function decryptAESGCM( key, encryptedData ) {
-        const { iv, ciphertext } = splitIVAndCiphertext( encryptedData );
+        const iv = encryptedData.slice( 0, 12 ), ciphertext = encryptedData.slice( 12 );
         const decryptedData = await subtle.decrypt( { name: "AES-GCM", iv }, key, ciphertext );
         return new TextDecoder().decode( decryptedData );
     }
